@@ -3,10 +3,13 @@ set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 
 set nobackup
-set undodir=~/.vim/undodir
 
-if !isdirectory(&undodir)
-  call mkdir(&undodir, 'p', 0700)
+if has('persistent_undo')
+  set undofile
+  set undodir=~/.vim/undodir
+  if !isdirectory(&undodir)
+    call mkdir(&undodir, 'p', 0700)
+  endif
 endif
 
 if has('mouse')
