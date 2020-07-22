@@ -6,7 +6,7 @@ set nobackup
 
 if has('persistent_undo')
   set undofile
-  set undodir=~/.vim/undodir
+  set undodir=~\vimfiles\undodir
   if !isdirectory(&undodir)
     call mkdir(&undodir, 'p', 0700)
   endif
