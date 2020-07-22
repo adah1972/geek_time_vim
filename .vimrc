@@ -20,3 +20,9 @@ if has('mouse')
     set mouse=nvi
   endif
 endif
+
+if has('gui_running')
+  " 下面两行仅为占位使用；请填入你自己的字体
+  set guifont=
+  set guifontwide=
+endif
