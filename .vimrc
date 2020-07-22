@@ -1,5 +1,4 @@
 set enc=utf-8
-set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 
 set fileencodings=ucs-bom,utf-8,gb18030,latin1
