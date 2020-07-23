@@ -2,6 +2,7 @@ set enc=utf-8
 source $VIMRUNTIME/vimrc_example.vim
 
 set fileencodings=ucs-bom,utf-8,gb18030,latin1
+set scrolloff=1
 set nobackup
 
 if has('persistent_undo')
