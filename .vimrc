@@ -31,12 +31,24 @@ if has('mouse')
   endif
 endif
 
+if !has('gui_running')
+  " 设置文本菜单
+  if has('wildmenu')
+    set wildmenu
+    set cpoptions-=<
+    set wildcharm=<C-Z>
+    nnoremap <F10>      :emenu <C-Z>
+    inoremap <F10> <C-O>:emenu <C-Z>
+  endif
+endif
+
 if exists('*minpac#init')
   " Minpac is loaded.
   call minpac#init()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
   " Other plugins
+  call minpac#add('yegappan/mru')
 endif
 
 if has('eval')
