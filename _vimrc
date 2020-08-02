@@ -57,3 +57,7 @@ if has('eval')
   command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
   command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
 endif
+
+if v:version >= 800
+  packadd! editexisting
+endif
