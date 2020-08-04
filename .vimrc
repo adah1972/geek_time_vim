@@ -48,6 +48,7 @@ if exists('*minpac#init')
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
   " Other plugins
+  call minpac#add('preservim/nerdtree')
   call minpac#add('yegappan/mru')
 endif
 
