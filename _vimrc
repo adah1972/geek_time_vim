@@ -68,3 +68,7 @@ nnoremap <C-Tab>   <C-W>w
 inoremap <C-Tab>   <C-O><C-W>w
 nnoremap <C-S-Tab> <C-W>W
 inoremap <C-S-Tab> <C-O><C-W>W
+
+" 停止搜索高亮的键映射
+nnoremap <silent> <F2>      :nohlsearch<CR>
+inoremap <silent> <F2> <C-O>:nohlsearch<CR>
