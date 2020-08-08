@@ -56,6 +56,7 @@ if exists('*minpac#init')
   " Other plugins
   call minpac#add('majutsushi/tagbar')
   call minpac#add('preservim/nerdtree')
+  call minpac#add('skywind3000/asyncrun.vim')
   call minpac#add('yegappan/mru')
 endif
 
@@ -64,6 +65,9 @@ if has('eval')
   command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', {'do': 'call minpac#status()'})
   command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
   command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
+
+  " 和 asyncrun 一起用的异步 make 命令
+  command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 endif
 
 if v:version >= 800
@@ -79,6 +83,16 @@ inoremap <C-S-Tab> <C-O><C-W>W
 " 停止搜索高亮的键映射
 nnoremap <silent> <F2>      :nohlsearch<CR>
 inoremap <silent> <F2> <C-O>:nohlsearch<CR>
+
+" 映射按键来快速启停构建
+nnoremap <F5>  :if g:asyncrun_status != 'running'<bar>
+                 \if &modifiable<bar>
+                   \update<bar>
+                 \endif<bar>
+                 \exec 'Make'<bar>
+               \else<bar>
+                 \AsyncStop<bar>
+               \endif<CR>
 
 " 开关 Tagbar 插件的键映射
 nnoremap <F9>      :TagbarToggle<CR>
@@ -105,6 +119,9 @@ if has('autocmd')
     setlocal shiftwidth=2
     setlocal tabstop=8
   endfunction
+
+  " 异步运行命令时打开 quickfix 窗口，高度为 10 行
+  let g:asyncrun_open = 10
 
   au FileType c,cpp,objc  setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4 cinoptions=:0,g0,(0,w1
   au FileType json        setlocal expandtab shiftwidth=2 softtabstop=2
