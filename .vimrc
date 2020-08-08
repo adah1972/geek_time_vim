@@ -18,6 +18,7 @@ source $VIMRUNTIME/vimrc_example.vim
 
 set fileencodings=ucs-bom,utf-8,gb18030,latin1
 set scrolloff=1
+set tags=./tags,../tags,../../tags,tags,/usr/local/etc/systags
 set nobackup
 
 if has('persistent_undo')
