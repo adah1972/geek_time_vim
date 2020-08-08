@@ -84,6 +84,21 @@ inoremap <silent> <F2> <C-O>:nohlsearch<CR>
 nnoremap <F9>      :TagbarToggle<CR>
 inoremap <F9> <C-O>:TagbarToggle<CR>
 
+" 用于 quickfix、标签和文件跳转的键映射
+if !has('mac')
+nnoremap <F11>   :cn<CR>
+nnoremap <F12>   :cp<CR>
+else
+nnoremap <D-F11> :cn<CR>
+nnoremap <D-F12> :cp<CR>
+endif
+nnoremap <M-F11> :copen<CR>
+nnoremap <M-F12> :cclose<CR>
+nnoremap <C-F11> :tn<CR>
+nnoremap <C-F12> :tp<CR>
+nnoremap <S-F11> :n<CR>
+nnoremap <S-F12> :prev<CR>
+
 if has('autocmd')
   function! GnuIndent()
     setlocal cinoptions=>4,n-2,{2,^-2,:2,=2,g0,h2,p5,t0,+2,(0,u0,w1,m1
