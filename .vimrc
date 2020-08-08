@@ -54,6 +54,7 @@ if exists('*minpac#init')
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
   " Other plugins
+  call minpac#add('majutsushi/tagbar')
   call minpac#add('preservim/nerdtree')
   call minpac#add('yegappan/mru')
 endif
@@ -78,6 +79,10 @@ inoremap <C-S-Tab> <C-O><C-W>W
 " 停止搜索高亮的键映射
 nnoremap <silent> <F2>      :nohlsearch<CR>
 inoremap <silent> <F2> <C-O>:nohlsearch<CR>
+
+" 开关 Tagbar 插件的键映射
+nnoremap <F9>      :TagbarToggle<CR>
+inoremap <F9> <C-O>:TagbarToggle<CR>
 
 if has('autocmd')
   function! GnuIndent()
