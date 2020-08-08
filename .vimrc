@@ -16,7 +16,11 @@ endif
 set enc=utf-8
 source $VIMRUNTIME/vimrc_example.vim
 
+" 启用 man 插件
+source $VIMRUNTIME/ftplugin/man.vim
+
 set fileencodings=ucs-bom,utf-8,gb18030,latin1
+set keywordprg=:Man
 set scrolloff=1
 set tags=./tags,../tags,../../tags,tags,/usr/local/etc/systags
 set nobackup
