@@ -1,3 +1,8 @@
+if has('autocmd')
+  " 为了可以重新执行 vimrc，开头先清除当前组的自动命令
+  au!
+endif
+
 if has('gui_running')
   " 下面两行仅为占位使用；请填入你自己的字体
   set guifont=
@@ -72,3 +77,19 @@ inoremap <C-S-Tab> <C-O><C-W>W
 " 停止搜索高亮的键映射
 nnoremap <silent> <F2>      :nohlsearch<CR>
 inoremap <silent> <F2> <C-O>:nohlsearch<CR>
+
+if has('autocmd')
+  function! GnuIndent()
+    setlocal cinoptions=>4,n-2,{2,^-2,:2,=2,g0,h2,p5,t0,+2,(0,u0,w1,m1
+    setlocal shiftwidth=2
+    setlocal tabstop=8
+  endfunction
+
+  au FileType c,cpp,objc  setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4 cinoptions=:0,g0,(0,w1
+  au FileType json        setlocal expandtab shiftwidth=2 softtabstop=2
+  au FileType vim         setlocal expandtab shiftwidth=2 softtabstop=2
+
+  au FileType help        nnoremap <buffer> q <C-W>c
+
+  au BufRead /usr/include/*  call GnuIndent()
+endif
