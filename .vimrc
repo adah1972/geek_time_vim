@@ -22,7 +22,7 @@ source $VIMRUNTIME/ftplugin/man.vim
 set fileencodings=ucs-bom,utf-8,gb18030,latin1
 set keywordprg=:Man
 set scrolloff=1
-set tags=./tags,../tags,../../tags,tags,/usr/local/etc/systags
+set tags=./tags;,tags,/usr/local/etc/systags
 set nobackup
 
 if has('persistent_undo')
