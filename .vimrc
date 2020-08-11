@@ -58,9 +58,15 @@ if exists('*minpac#init')
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
   " Other plugins
+  call minpac#add('junegunn/fzf', {'do': {-> fzf#install()}})
+  call minpac#add('junegunn/fzf.vim')
   call minpac#add('majutsushi/tagbar')
+  call minpac#add('mbbill/undotree')
   call minpac#add('preservim/nerdtree')
   call minpac#add('skywind3000/asyncrun.vim')
+  call minpac#add('tpope/vim-eunuch')
+  call minpac#add('tpope/vim-repeat')
+  call minpac#add('tpope/vim-surround')
   call minpac#add('yegappan/mru')
 endif
 
@@ -101,6 +107,10 @@ nnoremap <F5>  :if g:asyncrun_status != 'running'<bar>
                \else<bar>
                  \AsyncStop<bar>
                \endif<CR>
+
+" 开关撤销树的键映射
+nnoremap <F6>      :UndotreeToggle<CR>
+inoremap <F6> <C-O>:UndotreeToggle<CR>
 
 " 开关 Tagbar 插件的键映射
 nnoremap <F9>      :TagbarToggle<CR>
