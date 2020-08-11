@@ -22,7 +22,7 @@ source $VIMRUNTIME/ftplugin/man.vim
 set fileencodings=ucs-bom,utf-8,gb18030,latin1
 set keywordprg=:Man
 set scrolloff=1
-set tags=./tags,../tags,../../tags,tags,/usr/local/etc/systags
+set tags=./tags;,tags,/usr/local/etc/systags
 set nobackup
 
 if has('persistent_undo')
@@ -58,9 +58,15 @@ if exists('*minpac#init')
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
   " Other plugins
+  call minpac#add('junegunn/fzf', {'do': {-> fzf#install()}})
+  call minpac#add('junegunn/fzf.vim')
   call minpac#add('majutsushi/tagbar')
+  call minpac#add('mbbill/undotree')
   call minpac#add('preservim/nerdtree')
   call minpac#add('skywind3000/asyncrun.vim')
+  call minpac#add('tpope/vim-eunuch')
+  call minpac#add('tpope/vim-repeat')
+  call minpac#add('tpope/vim-surround')
   call minpac#add('yegappan/mru')
 endif
 
@@ -84,6 +90,10 @@ inoremap <C-Tab>   <C-O><C-W>w
 nnoremap <C-S-Tab> <C-W>W
 inoremap <C-S-Tab> <C-O><C-W>W
 
+" 替换光标下单词的键映射
+nnoremap <Leader>v viw"0p
+vnoremap <Leader>v    "0p
+
 " 停止搜索高亮的键映射
 nnoremap <silent> <F2>      :nohlsearch<CR>
 inoremap <silent> <F2> <C-O>:nohlsearch<CR>
@@ -97,6 +107,10 @@ nnoremap <F5>  :if g:asyncrun_status != 'running'<bar>
                \else<bar>
                  \AsyncStop<bar>
                \endif<CR>
+
+" 开关撤销树的键映射
+nnoremap <F6>      :UndotreeToggle<CR>
+inoremap <F6> <C-O>:UndotreeToggle<CR>
 
 " 开关 Tagbar 插件的键映射
 nnoremap <F9>      :TagbarToggle<CR>
