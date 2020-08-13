@@ -19,6 +19,7 @@ source $VIMRUNTIME/vimrc_example.vim
 " 启用 man 插件
 source $VIMRUNTIME/ftplugin/man.vim
 
+set errorformat=\ %#%f(%l\\\,%c):\ %m
 set fileencodings=ucs-bom,utf-8,gb18030,latin1
 set keywordprg=:Man
 set scrolloff=1
