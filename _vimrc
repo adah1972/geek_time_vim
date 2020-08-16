@@ -21,6 +21,7 @@ source $VIMRUNTIME/ftplugin/man.vim
 
 set errorformat=\ %#%f(%l\\\,%c):\ %m
 set fileencodings=ucs-bom,utf-8,gb18030,latin1
+set formatoptions+=m
 set keywordprg=:Man
 set scrolloff=1
 set tags=./tags;,tags,/usr/local/etc/systags
