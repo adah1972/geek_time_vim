@@ -1,3 +1,5 @@
+" vim:set expandtab shiftwidth=2 tabstop=8 textwidth=72:
+
 if has('autocmd')
   " 为了可以重新执行 vimrc，开头先清除当前组的自动命令
   au!
@@ -21,9 +23,10 @@ source $VIMRUNTIME/ftplugin/man.vim
 
 set errorformat=\ %#%f(%l\\\,%c):\ %m
 set fileencodings=ucs-bom,utf-8,gb18030,latin1
-set formatoptions+=m
+set formatoptions+=mM
 set keywordprg=:Man
 set scrolloff=1
+set spelllang+=cjk
 set tags=./tags;,tags,/usr/local/etc/systags
 set nobackup
 
@@ -85,6 +88,12 @@ endif
 if v:version >= 800
   packadd! editexisting
 endif
+
+" 修改光标上下键一次移动一个屏幕行
+nnoremap <Up>        gk
+inoremap <Up>   <C-O>gk
+nnoremap <Down>      gj
+inoremap <Down> <C-O>gj
 
 " 切换窗口的键映射
 nnoremap <C-Tab>   <C-W>w
