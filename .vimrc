@@ -77,6 +77,7 @@ if exists('*minpac#init')
   call minpac#add('tpope/vim-eunuch')
   call minpac#add('tpope/vim-repeat')
   call minpac#add('tpope/vim-surround')
+  call minpac#add('vim-scripts/SyntaxAttr.vim')
   call minpac#add('yegappan/mru')
 endif
 
@@ -105,6 +106,9 @@ nnoremap <C-Tab>   <C-W>w
 inoremap <C-Tab>   <C-O><C-W>w
 nnoremap <C-S-Tab> <C-W>W
 inoremap <C-S-Tab> <C-O><C-W>W
+
+" 检查光标下字符的语法属性的键映射
+nnoremap <Leader>a :call SyntaxAttr()<CR>
 
 " 替换光标下单词的键映射
 nnoremap <Leader>v viw"0p
