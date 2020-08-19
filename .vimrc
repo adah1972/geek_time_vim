@@ -54,6 +54,12 @@ if !has('gui_running')
     nnoremap <F10>      :emenu <C-Z>
     inoremap <F10> <C-O>:emenu <C-Z>
   endif
+
+  " 识别终端的真彩支持
+  if has('termguicolors') &&
+        \($COLORTERM == 'truecolor' || $COLORTERM == '24bit')
+    set termguicolors
+  endif
 endif
 
 if exists('*minpac#init')
