@@ -68,6 +68,7 @@ if exists('*minpac#init')
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
   " Other plugins
+  call minpac#add('adah1972/vim-copy-as-rtf')
   call minpac#add('junegunn/fzf', {'do': {-> fzf#install()}})
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('majutsushi/tagbar')
