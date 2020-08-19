@@ -57,8 +57,7 @@ if !has('gui_running')
   endif
 
   " 识别终端的真彩支持
-  if has('termguicolors') &&
-        \($COLORTERM == 'truecolor' || $COLORTERM == '24bit')
+  if has('vcon')
     set termguicolors
   endif
 endif
