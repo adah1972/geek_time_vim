@@ -59,6 +59,9 @@ if !has('gui_running')
   " 识别终端的真彩支持
   if has('vcon')
     set termguicolors
+    "colorscheme gruvbox
+    " 需要马上设置一个支持真彩的配色方案，否则颜色会出问题
+    " 见 <URL:https://github.com/vim/vim/issues/6775>
   endif
 endif
 
