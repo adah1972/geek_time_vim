@@ -162,6 +162,26 @@ if has('autocmd')
   " 异步运行命令时打开 quickfix 窗口，高度为 10 行
   let g:asyncrun_open = 10
 
+  " 用于 YouCompleteMe 的设定
+  let g:ycm_auto_hover = ''
+  let g:ycm_filetype_whitelist = {
+        \ 'c': 1,
+        \ 'cpp': 1,
+        \ 'java': 1,
+        \ 'python': 1,
+        \ 'vim': 1,
+        \ 'sh': 1,
+        \ 'zsh': 1,
+        \ }
+  let g:ycm_goto_buffer_command = 'split-or-existing-window'
+  let g:ycm_key_invoke_completion = '<C-Z>'
+  let g:ycm_use_clangd = 1
+  nnoremap <Leader>fi :YcmCompleter FixIt<CR>
+  nnoremap <Leader>gt :YcmCompleter GoTo<CR>
+  nnoremap <Leader>gd :YcmCompleter GoToDefinition<CR>
+  nnoremap <Leader>gh :YcmCompleter GoToDeclaration<CR>
+  nnoremap <Leader>gr :YcmCompleter GoToReferences<CR>
+
   au FileType c,cpp,objc  setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4 cinoptions=:0,g0,(0,w1
   au FileType json        setlocal expandtab shiftwidth=2 softtabstop=2
   au FileType vim         setlocal expandtab shiftwidth=2 softtabstop=2
