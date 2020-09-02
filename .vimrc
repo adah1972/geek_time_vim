@@ -174,6 +174,11 @@ if has('autocmd')
   let g:airline#extensions#tabline#overflow_marker = '…'
   let g:airline#extensions#tabline#show_tab_nr = 0
 
+  " 非图形环境不使用 NERD Commenter 菜单
+  if !has('gui_running')
+    let g:NERDMenuMode = 0
+  endif
+
   " 用于 YouCompleteMe 的设定
   let g:ycm_auto_hover = ''
   let g:ycm_filetype_whitelist = {
