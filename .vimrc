@@ -167,6 +167,13 @@ if has('autocmd')
   " 异步运行命令时打开 quickfix 窗口，高度为 10 行
   let g:asyncrun_open = 10
 
+  " 用于 Airline 的设定
+  let g:airline_powerline_fonts = 1  " 如没有安装合适的字体，则应置成 0
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#buffer_nr_show = 1
+  let g:airline#extensions#tabline#overflow_marker = '…'
+  let g:airline#extensions#tabline#show_tab_nr = 0
+
   " 用于 YouCompleteMe 的设定
   let g:ycm_auto_hover = ''
   let g:ycm_filetype_whitelist = {
