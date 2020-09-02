@@ -72,22 +72,27 @@ if exists('*minpac#init')
 
   " Other plugins
   call minpac#add('adah1972/vim-copy-as-rtf')
+  call minpac#add('airblade/vim-gitgutter')
   call minpac#add('junegunn/fzf', {'do': {-> fzf#install()}})
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('majutsushi/tagbar')
   call minpac#add('mbbill/undotree')
+  call minpac#add('mg979/vim-visual-multi')
+  call minpac#add('preservim/nerdcommenter')
   call minpac#add('preservim/nerdtree')
   call minpac#add('skywind3000/asyncrun.vim')
   call minpac#add('tpope/vim-eunuch')
+  call minpac#add('tpope/vim-fugitive')
   call minpac#add('tpope/vim-repeat')
   call minpac#add('tpope/vim-surround')
+  call minpac#add('vim-airline/vim-airline')
   call minpac#add('vim-scripts/SyntaxAttr.vim')
   call minpac#add('yegappan/mru')
 endif
 
 if has('eval')
   " Minpac commands
-  command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', {'do': 'call minpac#status()'})
+  command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
   command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
   command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
 
@@ -164,6 +169,18 @@ if has('autocmd')
 
   " 异步运行命令时打开 quickfix 窗口，高度为 10 行
   let g:asyncrun_open = 10
+
+  " 用于 Airline 的设定
+  let g:airline_powerline_fonts = 1  " 如没有安装合适的字体，则应置成 0
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#buffer_nr_show = 1
+  let g:airline#extensions#tabline#overflow_marker = '…'
+  let g:airline#extensions#tabline#show_tab_nr = 0
+
+  " 非图形环境不使用 NERD Commenter 菜单
+  if !has('gui_running')
+    let g:NERDMenuMode = 0
+  endif
 
   " 用于 YouCompleteMe 的设定
   let g:ycm_auto_hover = ''
