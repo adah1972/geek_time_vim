@@ -1,5 +1,10 @@
 " vim:set expandtab shiftwidth=2 tabstop=8 textwidth=72:
 
+if exists('$VIM_TERMINAL')
+  echoerr 'Do not run Vim inside a Vim terminal'
+  quit
+endif
+
 if has('autocmd')
   " 为了可以重新执行 vimrc，开头先清除当前组的自动命令
   au!
@@ -159,6 +164,15 @@ nnoremap <C-F11> :tn<CR>
 nnoremap <C-F12> :tp<CR>
 nnoremap <S-F11> :n<CR>
 nnoremap <S-F12> :prev<CR>
+
+if has('unix') && !has('gui_running')
+  " Unix 终端下使用两下 Esc 来离开终端作业模式
+  tnoremap <Esc><Esc> <C-\><C-N>
+else
+  " 其他环境则使用 Esc 来离开终端作业模式
+  tnoremap <Esc>      <C-\><C-N>
+  tnoremap <C-V><Esc> <Esc>
+endif
 
 if has('autocmd')
   function! GnuIndent()
