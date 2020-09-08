@@ -157,6 +157,15 @@ nnoremap <C-F12> :tp<CR>
 nnoremap <S-F11> :n<CR>
 nnoremap <S-F12> :prev<CR>
 
+if has('unix') && !has('gui_running')
+  " Unix 终端下使用两下 Esc 来离开终端作业模式
+  tnoremap <Esc><Esc> <C-\><C-N>
+else
+  " 其他环境则使用 Esc 来离开终端作业模式
+  tnoremap <Esc>      <C-\><C-N>
+  tnoremap <C-V><Esc> <Esc>
+endif
+
 if has('autocmd')
   function! GnuIndent()
     setlocal cinoptions=>4,n-2,{2,^-2,:2,=2,g0,h2,p5,t0,+2,(0,u0,w1,m1
