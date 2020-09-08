@@ -1,5 +1,10 @@
 " vim:set expandtab shiftwidth=2 tabstop=8 textwidth=72:
 
+if exists('$VIM_TERMINAL')
+  echoerr 'Do not run Vim inside a Vim terminal'
+  quit
+endif
+
 if has('autocmd')
   " 为了可以重新执行 vimrc，开头先清除当前组的自动命令
   au!
