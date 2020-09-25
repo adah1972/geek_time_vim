@@ -67,7 +67,7 @@ if !has('gui_running')
   endif
 endif
 
-if exists('*minpac#init')
+if exists('g:loaded_minpac')
   " Minpac is loaded.
   call minpac#init()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
