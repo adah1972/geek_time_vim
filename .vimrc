@@ -195,6 +195,7 @@ if has('autocmd')
 
   " 用于 YouCompleteMe 的设定
   let g:ycm_auto_hover = ''
+  let g:ycm_complete_in_comments = 1
   let g:ycm_filetype_whitelist = {
         \ 'c': 1,
         \ 'cpp': 1,
